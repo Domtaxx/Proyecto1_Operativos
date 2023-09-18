@@ -49,7 +49,6 @@ int main(){
 
     int n = p * q;
 
-
     double e = 2;
     double phi = (p - 1) * (q - 1);
     while (e < phi) {
@@ -64,18 +63,18 @@ int main(){
     int k = 2; // A constant value
     double d = (1 + (k * phi)) / e;
 
-    // char msg = 12;
     char msg[2] = {12, 12};
+    char* cryp_msg, *org_msg;
     int len = 2;
     printf("\nMessage data: ");
     printArray(msg, len);
 
-    char* cryp_msg, *org_msg;
+
     cryp_msg = encrypt(msg, len, e, n);
     printf("\nEncrypted data: ");
     printArray(cryp_msg, len);
+
     org_msg = decrypt(cryp_msg, len, d, n);
-    // printf("\nOriginal Message Sent = %d", org_msg);
     printf("\nOriginal Message Sent: ");
     printArray(org_msg, len);
 
