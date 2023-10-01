@@ -86,23 +86,23 @@ uint32_t num_to_display(int num){
     else if(num == 6)
         display_value = 0x02;
     else if(num == 7)
-        display_value = 0x70;
+        display_value = 0x78;
     else if(num == 8)
-        display_value = 0x77;
+        display_value = 0x00;
     else if(num == 9)
-        display_value = 0x14;
-    else if(num == 10)
-        display_value = 0x80;
-    else if(num == 11)
+        display_value = 0x10;
+    else if(num == 0xa)
+        display_value = 0x08;
+    else if(num == 0xb)
         display_value = 0x03;
-    else if(num == 12)
-        display_value = 0x64;
-    else if(num == 13)
+    else if(num == 0xc)
+        display_value = 0x46;
+    else if(num == 0xd)
         display_value = 0x21;
-    else if(num == 14)
+    else if(num == 0xe)
         display_value = 0x06;
-    else if(num == 15)
-        display_value = 0x0d;
+    else if(num == 0xf)
+        display_value = 0x0e;
     else
         display_value = 0x0;
     return display_value;
