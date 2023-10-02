@@ -146,8 +146,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 152)
 		(output)
-		(text "pio_num_0_external_connection_export[6..0]" (rect 0 0 179 12)(font "Arial" (font_size 8)))
-		(text "pio_num_0_external_connection_export[6..0]" (rect 4 141 256 152)(font "Arial" (font_size 8)))
+		(text "pio_num_0_external_connection_export[27..0]" (rect 0 0 184 12)(font "Arial" (font_size 8)))
+		(text "pio_num_0_external_connection_export[27..0]" (rect 4 141 262 152)(font "Arial" (font_size 8)))
 		(line (pt 0 152)(pt 256 152)(line_width 3))
 	)
 	(port
@@ -199,7 +199,7 @@ https://fpgasoftware.intel.com/eula.
 		(text "export" (rect 261 187 558 384)(font "Arial" (color 0 0 0)))
 		(text "reset" (rect 227 203 484 419)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "reset_n" (rect 261 227 564 464)(font "Arial" (color 0 0 0)))
-		(text " system " (rect 589 328 1226 666)(font "Arial" ))
+		(text " platform " (rect 585 328 1230 666)(font "Arial" ))
 		(line (pt 256 32)(pt 368 32)(line_width 1))
 		(line (pt 368 32)(pt 368 328)(line_width 1))
 		(line (pt 256 328)(pt 368 328)(line_width 1))

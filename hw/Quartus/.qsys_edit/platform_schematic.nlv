@@ -56,14 +56,14 @@ preplace inst platform.hps_0.nand0 -pg 1
 preplace inst platform.hps_0.timer2 -pg 1
 preplace inst platform.hps_0.uart0 -pg 1
 preplace inst platform.clk_0 -pg 1 -lvl 1 -y 270
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
-preplace netloc FAN_OUT<net_container>platform</net_container>(SLAVE)hps_0.h2f_lw_axi_clock,(SLAVE)pio_num_0.clk,(SLAVE)pio_switches_0.clk,(MASTER)clk_0.clk,(SLAVE)pio_led_0.clk) 1 1 2 410 200 780
+preplace netloc FAN_OUT<net_container>platform</net_container>(SLAVE)hps_0.h2f_lw_axi_clock,(SLAVE)pio_num_0.clk,(MASTER)clk_0.clk,(SLAVE)pio_led_0.clk,(SLAVE)pio_switches_0.clk) 1 1 2 410 280 760
+preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)clk_0.clk_in,(SLAVE)platform.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
 preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.memory,(SLAVE)hps_0.memory) 1 0 2 NJ 150 NJ
-preplace netloc FAN_OUT<net_container>platform</net_container>(SLAVE)pio_led_0.s1,(SLAVE)pio_switches_0.s1,(MASTER)hps_0.h2f_lw_axi_master,(SLAVE)pio_num_0.s1) 1 2 1 760
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)pio_switches_0.external_connection,(SLAVE)platform.pio_switches_0_external_connection) 1 0 3 NJ 260 NJ 260 NJ
-preplace netloc FAN_OUT<net_container>platform</net_container>(SLAVE)pio_led_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)pio_switches_0.reset,(SLAVE)pio_num_0.reset) 1 1 2 NJ 300 740
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)platform.reset) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>platform</net_container>(MASTER)hps_0.h2f_lw_axi_master,(SLAVE)pio_switches_0.s1,(SLAVE)pio_num_0.s1,(SLAVE)pio_led_0.s1) 1 2 1 740
+preplace netloc FAN_OUT<net_container>platform</net_container>(SLAVE)pio_led_0.reset,(MASTER)clk_0.clk_reset,(SLAVE)pio_switches_0.reset,(SLAVE)pio_num_0.reset) 1 1 2 NJ 300 780
+preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.pio_num_0_external_connection,(SLAVE)pio_num_0.external_connection) 1 0 3 NJ 200 NJ 200 NJ
 preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)pio_led_0.external_connection,(SLAVE)platform.pio_led_0_external_connection) 1 0 3 NJ 60 NJ 60 NJ
-preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)pio_num_0.external_connection,(SLAVE)platform.pio_num_0_external_connection) 1 0 3 NJ 80 NJ 80 NJ
+preplace netloc EXPORT<net_container>platform</net_container>(SLAVE)platform.pio_switches_0_external_connection,(SLAVE)pio_switches_0.external_connection) 1 0 3 NJ 260 NJ 260 NJ
 levelinfo -pg 1 0 200 990
 levelinfo -hier platform 210 240 530 830 980

@@ -18,7 +18,7 @@ module platform_top (
 		input  wire        memory_oct_rzqin,                 //                          .oct_rzqin
 		output wire        pio_led_0_external_connection_export, // pio_0_external_connection.export
 		input  wire [4:0]  pio_switches_0,
-		output wire [6:0]  display_0, // pio_0_external_connection.export
+		output wire [27:0] displays, // pio_0_external_connection.export
 		input  wire        reset_reset_n                     //                     reset.reset_n
 );
 	
@@ -45,7 +45,7 @@ module platform_top (
 		.memory_oct_rzqin(memory_oct_rzqin),
 		.pio_led_0_external_connection_export(pio_led_0_external_connection_export),
 		.pio_switches_0_external_connection_export(pio_switches_0),
-		.pio_num_0_external_connection_export(display_0),
+		.pio_num_0_external_connection_export(displays),
 		.reset_reset_n(reset_reset_n)
 		);
 		

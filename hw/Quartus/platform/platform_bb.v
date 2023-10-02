@@ -40,7 +40,7 @@ module platform (
 	output		memory_mem_dm;
 	input		memory_oct_rzqin;
 	output		pio_led_0_external_connection_export;
-	output	[6:0]	pio_num_0_external_connection_export;
+	output	[27:0]	pio_num_0_external_connection_export;
 	input	[4:0]	pio_switches_0_external_connection_export;
 	input		reset_reset_n;
 endmodule
