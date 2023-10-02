@@ -14,7 +14,10 @@
 volatile uint32_t* enter_ptr;
 volatile uint32_t* switch_ptr;
 volatile uint32_t* display_ptr;
+int press_count = 0;
+uint32_t input = 0;
 uint32_t n = 0;
+uint32_t d = 0;
 
 
 uint32_t num_to_display(int num){
@@ -67,21 +70,12 @@ void setup_per(void* virtual_base){
     display_ptr = (volatile uint32_t*)((uint8_t*)virtual_base + DISPLAY_OFFSET);
 }
 
-// void update_final_display(){
-//     uint32_t digit = n & 0xf;
-//     uint32_t display_value = num_to_display(digit);
-//     final_display = ((final_display | 0xffff) | display_value) << 7;
-// }
 
 void display(){
-    // int j = 7;
-    // int bitmask = ~(1 << j) & ((1 << j) - 1);
-    // final_display = (final_display & bitmask) | num_to_display(get_switch_value());
-    // *display_ptr = final_display;
     uint32_t display0_value = num_to_display(get_switch_value());
-    uint32_t display1_value = num_to_display((n) & 0xf);
-    uint32_t display2_value = num_to_display((n >> 4) & 0xf);
-    uint32_t display3_value = num_to_display((n >> 8) & 0xf);
+    uint32_t display1_value = num_to_display((input) & 0xf);
+    uint32_t display2_value = num_to_display((input >> 4) & 0xf);
+    uint32_t display3_value = num_to_display((input >> 8) & 0xf);
     
     *display_ptr = display3_value << 21 | display2_value << 14 | display1_value << 7 | display0_value;
 }
@@ -98,13 +92,36 @@ bool is_enter_pressed(){
 
 void reset_edgecapture(){
     volatile uint32_t* ec_ptr = get_edgecapture_ptr(switch_ptr);
+    press_count++;
     *ec_ptr = 0x00;
 }
 
-void set_new_digit(){
-    n = n << 4; //Hacer campo al otro valor
-    n = n | get_switch_value();
-    printf("n = %x\n", n);
+void conc_new_digit(){
+    if(press_count < 8){
+        input = input << 4; //Hacer campo al otro valor
+        input = input | get_switch_value();
+    }
+}
+
+void run(){
+    printf("Corrrer programa\n");
+}
+
+void if_complete_key_set_var(){
+    if(press_count == 4){
+        n = input;
+        input = 0;
+        printf("n = %x\n", n);
+    }
+    else if(press_count == 8){
+        d = input;
+        input = 0;
+        printf("d = %x\n", d);
+    }
+}
+
+bool is_key_set(){
+    return press_count == 8;
 }
 
 int main() {
@@ -126,9 +143,13 @@ int main() {
         display();
         
         if(is_enter_pressed()) {
-            printf("Entró al if\n");
-            set_new_digit();
+            conc_new_digit();
             reset_edgecapture();
+            if_complete_key_set_var();
+        }
+        if(is_key_set()){
+            run();
+            break;
         }
     }
 
