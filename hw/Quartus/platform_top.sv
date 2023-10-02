@@ -17,7 +17,7 @@ module platform_top (
 		output wire        memory_mem_dm,                    //                          .mem_dm
 		input  wire        memory_oct_rzqin,                 //                          .oct_rzqin
 		output wire        pio_led_0_external_connection_export, // pio_0_external_connection.export
-		input  wire [3:0]  pio_switches_0,
+		input  wire [4:0]  pio_switches_0,
 		output wire [6:0]  display_0, // pio_0_external_connection.export
 		input  wire        reset_reset_n                     //                     reset.reset_n
 );
