@@ -1,0 +1,1 @@
+arm-linux-gnueabihf-gcc -static -o perifericos perifericos.c
