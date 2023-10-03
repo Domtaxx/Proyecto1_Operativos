@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "string.h": "c",
+        "stb_image_write.h": "c",
+        "stb_image.h": "c"
+    }
+}
