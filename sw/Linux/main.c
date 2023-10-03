@@ -8,8 +8,8 @@
 #include "readFile.c"
 
 char* nombreArchivo = "ejemploEncoded.txt";
-const char* output_file_path_lap = "img/OutputImages/output_image_lap.jpg";
-const char* output_file_path_original = "img/OutputImages/output_image_original.jpg";
+const char* output_file_path_lap = "output_image_lap.jpg";
+const char* output_file_path_original = "output_image_original.jpg";
 
 unsigned int width;
 unsigned int height;
